@@ -1,0 +1,30 @@
+---
+title: "Etat Recaptulatif de la Collecte de ce jour: `r Sys.Date()`"
+author: "Komlan Samati"
+format:
+  pdf:
+    pdf-engine: lualatex
+---
+
+# I. Nombre de questionnaires remplis par enquêteur
+
+Le graphique ci-dessous retrace le nombre de questionnaires remplis par chaque enquêteurs.
+
+```{r}
+#| label: graph
+#| warning: false
+#| message: false
+#| echo: false
+
+
+library(knitr)
+library(tidyverse)
+library(tibble)
+library(gt)
+df <-  readRDS('app/survey_data.rds') |>
+    select(3:5) 
+
+df |> 
+  gt()
+
+```
